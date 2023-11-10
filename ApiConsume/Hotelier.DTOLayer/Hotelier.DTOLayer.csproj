@@ -19,4 +19,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Hotelier.EntityLayer\Hotelier.EntityLayer.csproj" />
+  </ItemGroup>
+
 </Project>
