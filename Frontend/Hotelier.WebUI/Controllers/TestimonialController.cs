@@ -1,5 +1,4 @@
-﻿using Hotelier.WebUI.Models.Staff;
-using Hotelier.WebUI.Models.Testimonial;
+﻿using Hotelier.WebUI.Models.Testimonial;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Collections.Generic;
