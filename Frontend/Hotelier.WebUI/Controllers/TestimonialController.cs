@@ -75,7 +75,7 @@ namespace Hotelier.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateStaff(TestimonialViewModel model)
+        public async Task<IActionResult> UpdateTestimonial(TestimonialViewModel model)
         {
             var client = _httpClientFactory.CreateClient();
             var jsdata = JsonConvert.SerializeObject(model);
