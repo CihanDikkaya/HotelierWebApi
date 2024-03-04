@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Hotelier.WebUI.Controllers
@@ -27,6 +28,41 @@ namespace Hotelier.WebUI.Controllers
                 var jsdata = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultServiceDTO>>(jsdata);
                 return View(values);
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult AddService()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddService(CreateServiceDTO createServiceDTO)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            var client = _httpClientFactory.CreateClient();
+            var jsdata = JsonConvert.SerializeObject(createServiceDTO);
+            StringContent stringContent = new StringContent(jsdata, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("http://localhost:61440/api/Service", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+
+        public async Task<IActionResult> DeleteService(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.DeleteAsync($"http://localhost:61440/api/Service/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
             }
             return View();
         }
