@@ -66,5 +66,39 @@ namespace Hotelier.WebUI.Controllers
             }
             return View();
         }
+
+
+
+        [HttpGet]
+        public async Task<IActionResult> UpdateService(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"http://localhost:61440/api/Service/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsdata = await responseMessage.Content.ReadAsStringAsync();
+                var val = JsonConvert.DeserializeObject<UpdateServiceDTO>(jsdata);
+                return View(val);
+            }
+            return View();
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateService(UpdateServiceDTO model)
+        {
+            if (!ModelState.IsValid)
+                return View();
+            var client = _httpClientFactory.CreateClient();
+            var jsdata = JsonConvert.SerializeObject(model);
+            StringContent stringContent = new StringContent(jsdata, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync("http://localhost:61440/api/Service/", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+
+        }
     }
 }

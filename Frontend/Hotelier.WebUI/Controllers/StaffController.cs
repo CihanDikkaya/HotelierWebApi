@@ -59,6 +59,7 @@ namespace Hotelier.WebUI.Controllers
             }
             return View();
         }
+
         [HttpGet]
         public async Task<IActionResult> UpdateStaff(int id)
         {
