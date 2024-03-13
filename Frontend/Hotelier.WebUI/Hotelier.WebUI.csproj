@@ -23,7 +23,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ApiConsume\Hotelier.DataAccessLayer\Hotelier.DataAccessLayer.csproj" />
     <ProjectReference Include="..\..\ApiConsume\Hotelier.EntityLayer\Hotelier.EntityLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
 
 </Project>
