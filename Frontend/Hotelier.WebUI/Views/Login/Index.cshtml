@@ -1,27 +1,26 @@
-﻿@model CreateNewUserDTO
+﻿@model LoginUserDTO
 @{
     Layout = null;
 }
 
+
 <!DOCTYPE html>
-
-
 <html class="h-100" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Otel Giriş Paneli</title>
+    <title>Otel Admin Giriş Paneli</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/Admin/assets/images/favicon.png">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> -->
     <link href="/Admin/css/style.css" rel="stylesheet">
-
+    
 </head>
 
 <body class="h-100">
-
+    
     <!--*******************
         Preloader start
     ********************-->
@@ -36,7 +35,7 @@
         Preloader end
     ********************-->
 
-
+    
 
 
 
@@ -47,41 +46,20 @@
                     <div class="form-input-content">
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
-
                                 <a class="text-center" href="index.html"> <h4>Otel Giriş Paneli</h4></a>
-
+        
                                 <form class="mt-5 mb-5 login-input" method="post">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Adınız" asp-for="Name">
-                                        <span asp-validation-for="Name" class="text-warning"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Soyadınız" asp-for="Surname">
-                                        <span asp-validation-for="Surname" class="text-warning"></span>
-                                    </div>
-                                    <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Kullanıcı Adınız" asp-for="Username">
-                                        <span asp-validation-for="Surname" class="text-warning"></span>
+                                        <span asp-validation-for="Username" class="text-danger"></span>
                                     </div>
-
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="E-Posta Adresiniz" asp-for="Mail">
-                                        <span asp-validation-for="Mail" class="text-warning"></span>
-                                    </div>
-
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Şifreniz" asp-for="Password">
-                                        <span asp-validation-for="Password" class="text-warning"></span>
+                                        <span asp-validation-for="Password" class="text-danger"></span>
                                     </div>
-
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Şifrenizi Tekrar Giriniz" asp-for="ConfirPassword">
-                                        <span asp-validation-for="ConfirPassword" class="text-warning"></span>
-                                    </div>
-                                    <button class="btn login-form__btn submit w-100">Kayıt Ol</button>
+                                    <button class="btn login-form__btn submit w-100">Giriş Yap</button>
                                 </form>
-                                <p class="mt-5 login-form__footer">Bir Hesabın Var Mı? <a href="/Login/Index/" class="text-primary">Oturum Aç</a></p>
-                                
+                                <p class="mt-5 login-form__footer">Bir Hesabın Yok Mu? <a href="/Register/Index/" class="text-primary">Kayıt Ol</a></p>
                             </div>
                         </div>
                     </div>
@@ -91,8 +69,7 @@
     </div>
     
 
-
-
+    
 
     <!--**********************************
         Scripts
@@ -104,7 +81,6 @@
     <script src="/Admin/js/styleSwitcher.js"></script>
 </body>
 </html>
-
 
 
 
