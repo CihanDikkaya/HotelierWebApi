@@ -1,41 +1,11 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <title>Hotelier - Hotel HTML Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">  
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="/Hotel/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="/Hotel/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="/Hotel/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="/Hotel/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="/Hotel/css/style.css" rel="stylesheet">
-</head>
+@await Component.InvokeAsync("_HeadPartial")
 
 <body>
     <div class="container-xxl bg-white p-0">
@@ -46,7 +16,6 @@
             </div>
         </div>
         <!-- Spinner End -->
-
         <!-- Header Start -->
         <div class="container-fluid bg-dark px-0">
             <div class="row gx-0">
@@ -106,9 +75,8 @@
                 </div>
             </div>
         </div>
+
         <!-- Header End -->
-
-
         <!-- Carousel Start -->
         <div class="container-fluid p-0 mb-5">
             <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -137,20 +105,18 @@
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
-                    data-bs-slide="prev">
+                        data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
-                    data-bs-slide="next">
+                        data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
         </div>
         <!-- Carousel End -->
-
-
         <!-- Booking Start -->
         <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container">
@@ -161,12 +127,12 @@
                                 <div class="col-md-3">
                                     <div class="date" id="date1" data-target-input="nearest">
                                         <input type="text" class="form-control datetimepicker-input"
-                                            placeholder="Check in" data-target="#date1" data-toggle="datetimepicker" />
+                                               placeholder="Check in" data-target="#date1" data-toggle="datetimepicker" />
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="date" id="date2" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" placeholder="Check out" data-target="#date2" data-toggle="datetimepicker"/>
+                                        <input type="text" class="form-control datetimepicker-input" placeholder="Check out" data-target="#date2" data-toggle="datetimepicker" />
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -195,8 +161,6 @@
             </div>
         </div>
         <!-- Booking End -->
-
-
         <!-- About Start -->
         <div class="container-xxl py-5">
             <div class="container">
@@ -239,16 +203,16 @@
                     <div class="col-lg-6">
                         <div class="row g-3">
                             <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="img/about-1.jpg" style="margin-top: 25%;">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="/Hotel/img/about-1.jpg" style="margin-top: 25%;">
                             </div>
                             <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="img/about-2.jpg">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="/Hotel/img/about-2.jpg">
                             </div>
                             <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="img/about-3.jpg">
+                                <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="/Hotel/img/about-3.jpg">
                             </div>
                             <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="img/about-4.jpg">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="/Hotel/img/about-4.jpg">
                             </div>
                         </div>
                     </div>
@@ -256,8 +220,6 @@
             </div>
         </div>
         <!-- About End -->
-
-
         <!-- Room Start -->
         <div class="container-xxl py-5">
             <div class="container">
@@ -360,8 +322,6 @@
             </div>
         </div>
         <!-- Room End -->
-
-
         <!-- Video Start -->
         <div class="container-xxl py-5 px-0 wow zoomIn" data-wow-delay="0.1s">
             <div class="row g-0">
@@ -395,15 +355,13 @@
                         <!-- 16:9 aspect ratio -->
                         <div class="ratio ratio-16x9">
                             <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
-                                allow="autoplay"></iframe>
+                                    allow="autoplay"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Video Start -->
-
-
         <!-- Service Start -->
         <div class="container-xxl py-5">
             <div class="container">
@@ -482,8 +440,6 @@
             </div>
         </div>
         <!-- Service End -->
-
-
         <!-- Testimonial Start -->
         <div class="container-xxl testimonial my-5 py-5 bg-dark wow zoomIn" data-wow-delay="0.1s">
             <div class="container">
@@ -525,8 +481,6 @@
             </div>
         </div>
         <!-- Testimonial End -->
-
-
         <!-- Team Start -->
         <div class="container-xxl py-5">
             <div class="container">
@@ -603,8 +557,6 @@
             </div>
         </div>
         <!-- Team End -->
-
-
         <!-- Newsletter Start -->
         <div class="container newsletter mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="row justify-content-center">
@@ -622,8 +574,6 @@
             </div>
         </div>
         <!-- Newsletter Start -->
-        
-
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s">
             <div class="container pb-5">
@@ -632,8 +582,8 @@
                         <div class="bg-primary rounded p-4">
                             <a href="index.html"><h1 class="text-white text-uppercase mb-3">Hotelier</h1></a>
                             <p class="text-white mb-0">
-								Download <a class="text-dark fw-medium" href="https://htmlcodex.com/hotel-html-template-pro">Hotelier – Premium Version</a>, build a professional website for your hotel business and grab the attention of new visitors upon your site’s launch.
-							</p>
+                                Download <a class="text-dark fw-medium" href="https://htmlcodex.com/hotel-html-template-pro">Hotelier – Premium Version</a>, build a professional website for your hotel business and grab the attention of new visitors upon your site’s launch.
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
@@ -674,10 +624,10 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
-							
-							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
@@ -692,8 +642,6 @@
             </div>
         </div>
         <!-- Footer End -->
-
-
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
