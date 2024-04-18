@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hotelier.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20240402125551_mig_add_About")]
+    [Migration("20240416081749_mig_add_About")]
     partial class mig_add_About
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
