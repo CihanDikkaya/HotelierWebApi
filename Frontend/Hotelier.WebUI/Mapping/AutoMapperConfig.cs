@@ -5,6 +5,7 @@ using Hotelier.WebUI.DTOS.LoginDTO;
 using Hotelier.WebUI.DTOS.RegisterDTO;
 using Hotelier.WebUI.DTOS.ServiceDTO;
 using Hotelier.WebUI.DTOS.StaffDTO;
+using Hotelier.WebUI.DTOS.SubscribeDTO;
 using Hotelier.WebUI.DTOS.TestimonialDTO;
 
 namespace Hotelier.WebUI.Mapping
@@ -22,6 +23,7 @@ namespace Hotelier.WebUI.Mapping
             CreateMap<UpdateAboutDTO, About>().ReverseMap();
             CreateMap<ResultTestimonialDTO, Testimonial>().ReverseMap();
             CreateMap<ResultStaffDTO, Staff>().ReverseMap();
+            CreateMap<CreateSubsDTO, Subscribe>().ReverseMap();
 
         }
     }
