@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Hotelier.EntityLayer.Concrete
+namespace Hotelier.WebUI.DTOS.BookingDTO
 {
-    public class Booking
+    public class CreateBookingDTO
     {
-        public int BookingID { get; set; }
+
         public string Name { get; set; }
         public string Mail { get; set; }
         public DateTime CheckIn { get; set; }
@@ -19,6 +15,5 @@ namespace Hotelier.EntityLayer.Concrete
         public string Request { get; set; }
         public string Description { get; set; }
         public string Status { get; set; }
-
     }
 }
