@@ -23,28 +23,28 @@ namespace Hotelier.WebApi.Controllers
             return Ok(v);
         }
         [HttpPost]
-        public IActionResult AddBooking(Booking  booking)
+        public IActionResult AddBooking(Booking booking)
         {
             _bookingService.TInsert(booking);
             return Ok();
         }
         [HttpDelete("{id}")]
-        public IActionResult DeleteService(int id)
+        public IActionResult DeleteBooking(int id)
         {
-            var v = _ServiceService.TGetByID(id);
-            _ServiceService.TDelete(v);
+            var v = _bookingService.TGetByID(id);
+            _bookingService.TDelete(v);
             return Ok();
         }
         [HttpPut]
-        public IActionResult UpdateService(Service Service)
+        public IActionResult UpdateBooking(Booking booking)
         {
-            _ServiceService.TUpdate(Service);
+            _bookingService.TUpdate(booking);
             return Ok();
         }
         [HttpGet("{id}")]
-        public IActionResult GetService(int id)
+        public IActionResult GetBooking(int id)
         {
-            var v = _ServiceService.TGetByID(id);
+            var v = _bookingService.TGetByID(id);
             return Ok(v);
         }
     }
