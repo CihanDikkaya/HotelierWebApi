@@ -16,5 +16,13 @@ namespace Hotelier.DataAccessLayer.EntityFramework
         {
 
         }
+
+        public void BookingStatusChangeApproved(Booking booking)
+        {
+            var context = new Context();
+            var values = context.Bookings.Where(X => X.BookingID == booking.BookingID).FirstOrDefault();
+            values.Status = "onaylandı";
+            context.SaveChanges();
+        }
     }
 }

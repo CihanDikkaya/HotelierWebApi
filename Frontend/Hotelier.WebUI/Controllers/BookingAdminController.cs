@@ -1,9 +1,9 @@
 ﻿using Hotelier.WebUI.DTOS.BookingDTO;
-using Hotelier.WebUI.DTOS.ServiceDTO;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Hotelier.WebUI.Controllers
@@ -29,6 +29,22 @@ namespace Hotelier.WebUI.Controllers
                 return View(values);
             }
             return View();
+        }
+
+        public async Task<IActionResult> ApprovedReservation(ApprovedReservationDTO approvedReservationDTO)
+        {
+            
+            var client = _httpClientFactory.CreateClient();
+            var jsdata = JsonConvert.SerializeObject(approvedReservationDTO);
+            StringContent stringContent = new StringContent(jsdata, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync("http://localhost:61440/api/Booking/aaaaa", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+
+
         }
     }
 }
