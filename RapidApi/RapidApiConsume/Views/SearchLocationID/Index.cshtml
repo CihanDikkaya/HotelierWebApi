@@ -8,6 +8,13 @@
 
 <div class="container">
     <br /><br />
+    @using (Html.BeginForm("Index", "SearchLocationID", FormMethod.Post))
+    {
+        <label>Şehir Adını Giriniz</label>
+        <input type="text" class="form-control" name="cityName">
+        <br />
+        <button class="btn btn-primary">Şehir için numara bul</button>
+    }
     <table class="table table-bordered">
         <tr>
 
@@ -21,4 +28,6 @@
             </tr>
         }
     </table>
+    <br />
+    <a href="/BookingByCity/Index/" class="btn btn-dark">Yeni Otel Rezervasyon Bilgisi</a>
 </div>

@@ -1,26 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using RapidApiConsume.Models;
 using System.Net.Http;
 using System;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using System.Collections.Generic;
-using RapidApiConsume.Models;
-using Newtonsoft.Json;
 using System.Linq;
+
 namespace RapidApiConsume.Controllers
 {
-    public class SearchLocationIDController : Controller
+    public class BookingByCityController : Controller
     {
-        public async Task<IActionResult> Index(string cityName)
+        public async Task<IActionResult> Index(string cityID)
         {
-            if (!string.IsNullOrEmpty(cityName))
+            if (!string.IsNullOrEmpty(cityID))
             {
-                List<SearchViewModel> searchViewModels = new List<SearchViewModel>();
                 var client = new HttpClient();
                 var request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Get,
-                    RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v1/hotels/locations?name={cityName}&locale=en-gb"),
+                    RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v2/hotels/search?locale=fr&filter_by_currency=EUR&checkin_date=2024-09-14&dest_type=city&dest_id={cityID}&adults_number=2&checkout_date=2024-09-15&order_by=popularity&room_number=1&units=metric&children_number=2&children_ages=5%2C0&categories_filter_ids=class%3A%3A2%2Cclass%3A%3A4%2Cfree_cancellation%3A%3A1&include_adjacency=true&page_number=0"),
                     Headers =
     {
         { "X-RapidAPI-Key", "5df7a1357bmshdf1e68bab15f06ap126866jsnc75d2030d2fa" },
@@ -31,18 +29,17 @@ namespace RapidApiConsume.Controllers
                 {
                     response.EnsureSuccessStatusCode();
                     var body = await response.Content.ReadAsStringAsync();
-                    searchViewModels = JsonConvert.DeserializeObject<List<SearchViewModel>>(body);
-                    return View(searchViewModels.Take(1).ToList());
+                    var val = JsonConvert.DeserializeObject<BookingApiViewModel>(body);
+                    return View(val.results.ToList());
                 }
             }
             else
             {
-                List<SearchViewModel> searchViewModels = new List<SearchViewModel>();
                 var client = new HttpClient();
                 var request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Get,
-                    RequestUri = new Uri("https://booking-com.p.rapidapi.com/v1/hotels/locations?name=Berlin&locale=en-gb"),
+                    RequestUri = new Uri("https://booking-com.p.rapidapi.com/v2/hotels/search?locale=fr&filter_by_currency=EUR&checkin_date=2024-09-14&dest_type=city&dest_id=-1456928&adults_number=2&checkout_date=2024-09-15&order_by=popularity&room_number=1&units=metric&children_number=2&children_ages=5%2C0&categories_filter_ids=class%3A%3A2%2Cclass%3A%3A4%2Cfree_cancellation%3A%3A1&include_adjacency=true&page_number=0"),
                     Headers =
     {
         { "X-RapidAPI-Key", "5df7a1357bmshdf1e68bab15f06ap126866jsnc75d2030d2fa" },
@@ -53,11 +50,10 @@ namespace RapidApiConsume.Controllers
                 {
                     response.EnsureSuccessStatusCode();
                     var body = await response.Content.ReadAsStringAsync();
-                    searchViewModels = JsonConvert.DeserializeObject<List<SearchViewModel>>(body);
-                    return View(searchViewModels.Take(1).ToList());
+                    var val = JsonConvert.DeserializeObject<BookingApiViewModel>(body);
+                    return View(val.results.ToList());
                 }
             }
-
         }
     }
 }
