@@ -54,5 +54,12 @@ namespace Hotelier.WebApi.Controllers
             _bookingService.TBookingStatusChangeApproved(booking);
             return Ok();
         }
+
+        [HttpPut("bbbbb")]
+        public IActionResult bbbbb(int id)
+        {
+            _bookingService.TBookingStatusChangeApproved2(id);
+            return Ok();
+        }
     }
 }

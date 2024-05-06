@@ -37,7 +37,7 @@ namespace Hotelier.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsdata = JsonConvert.SerializeObject(approvedReservationDTO);
             StringContent stringContent = new StringContent(jsdata, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("http://localhost:61440/api/Booking/aaaaa", stringContent);
+            var responseMessage = await client.PutAsync("http://localhost:61440/api/Booking/bbbbb", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
