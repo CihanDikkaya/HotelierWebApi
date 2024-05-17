@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WEBApiJWT.Controllers
+namespace WebApiJwt.Controllers
 {
     [ApiController]
     [Route("[controller]")]

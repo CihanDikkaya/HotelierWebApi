@@ -1,6 +1,6 @@
 using System;
 
-namespace WEBApiJWT
+namespace WebApiJwt
 {
     public class WeatherForecast
     {
