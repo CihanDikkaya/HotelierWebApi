@@ -28,7 +28,7 @@ namespace Hotelier.WebApi.Controllers
             _RoomService.TInsert(Room);
             return Ok();
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteRoom(int id)
         {
             var v = _RoomService.TGetByID(id);
