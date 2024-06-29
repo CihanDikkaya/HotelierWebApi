@@ -1,5 +1,9 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Hotelier.DataAccessLayer.Concrete;
 using Hotelier.EntityLayer.Concrete;
+using Hotelier.WebUI.DTOS.GuestDTO;
+using Hotelier.WebUI.ValidationRules.GuestValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -27,8 +31,12 @@ namespace Hotelier.WebUI
             services.AddDbContext<Context>();
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
             services.AddHttpClient();
+            services.AddTransient<IValidator<CreateGuestDTO>, GuestCreateValidator>();
+            services.AddTransient<IValidator<UpdateGuestDTO>, UpdateGuestValidator>();
+            services.AddControllersWithViews().AddFluentValidation();
             services.AddAutoMapper(typeof(Startup));
-            services.AddControllersWithViews();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
