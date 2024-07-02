@@ -27,5 +27,12 @@ namespace Hotelier.WebApi.Controllers
             _contactService.TInsert(contact);
             return Ok();
         }
+
+        [HttpGet]
+        public IActionResult InboxListContact()
+        {
+            var v = _contactService.TGetList();
+            return Ok(v);
+        }
     }
 }
