@@ -33,6 +33,19 @@ namespace Hotelier.WebUI.Controllers
             return View();
         }
 
+        public async Task<IActionResult> SendBox()
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("http://localhost:61440/api/SendMessage");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsdata = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<SendBoxDTO>>(jsdata);
+                return View(values);
+            }
+            return View();
+        }
+
         [HttpGet]
         public IActionResult AddSendMessage()
         {
@@ -48,7 +61,7 @@ namespace Hotelier.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsdata = JsonConvert.SerializeObject(model);
             StringContent stringContent = new StringContent(jsdata, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("http://localhost:61440/api/AddSendMessage", stringContent);
+            var responseMessage = await client.PostAsync("http://localhost:61440/api/SendMessage", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("SendBox");
