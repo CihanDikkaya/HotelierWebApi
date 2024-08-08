@@ -69,16 +69,6 @@ namespace Hotelier.WebUI.Controllers
             return View();
         }
 
-
-
-
-
-
-
-
-
-
-
         public PartialViewResult SideBarAdminContactPartial()
         {
             return PartialView();
@@ -87,5 +77,38 @@ namespace Hotelier.WebUI.Controllers
         {
             return PartialView();
         }
+
+        public async Task<IActionResult> MessageDetailsBySendBox(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"http://localhost:61440/api/SendMessage/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsdata = await responseMessage.Content.ReadAsStringAsync();
+                var val = JsonConvert.DeserializeObject<GetMessageByIDDTO>(jsdata);
+                return View(val);
+            }
+            return View();
+
+        }
+
+
+        public async Task<IActionResult> MessageDetailsByInbox(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"http://localhost:61440/api/Contact/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsdata = await responseMessage.Content.ReadAsStringAsync();
+                var val = JsonConvert.DeserializeObject<InboxContactDTO>(jsdata);
+                return View(val);
+            }
+            return View();
+
+        }
+
+
+
+
     }
 }

@@ -34,5 +34,12 @@ namespace Hotelier.WebApi.Controllers
             var v = _contactService.TGetList();
             return Ok(v);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetMessage(int id)
+        {
+            var v = _contactService.TGetByID(id);
+            return Ok(v);
+        }
     }
 }
